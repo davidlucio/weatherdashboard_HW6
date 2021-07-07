@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko&display=swap"/>
         <link rel="stylesheet" href="./assets/css/style.css"/>
 
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
         <title>Weather Dashboard</title>
     </head>
 
@@ -31,21 +33,24 @@
                     </div>
                 </aside>
 
-                <div class="col-sm-12 col-md-9">
-                    <section id=currentcity>
-                        <h3>City Name</h3>
-                        <p>Temp</p>
-                        <p>Wind</p>
-                        <p>Humidity</p>
-                        <p>UV Index</p>
+                <div class="col-sm-12 col-md-9 nocity">
+                    
+                    <section id=currentcity class="">
+                        <h3 id=displayCity>City Name</h3>
+                        <p id=displayTemp>Temp: <span></span></p>
+                        <p id=displayWind>Wind: <span></span></p>
+                        <p id=displayHumidity>Humidity: <span></span></p>
+                        <p id=displayUV>UV Index: <span></span></p>
                     </section>
 
-                    <section id=forecast>
-                        <div class="forecast-day">1</div>
-                        <div class="forecast-day">2</div>
-                        <div class="forecast-day">3</div>
-                        <div class="forecast-day">4</div>
-                        <div class="forecast-day">5</div>
+                    
+                    <section id=forecast class="d-flex">
+                        <h3>5-Day Forecast</h3>
+                        <div class="forecast-day" id=day1>FILLER</div>
+                        <div class="forecast-day" id=day2>FILLER</div>
+                        <div class="forecast-day" id=day3>FILLER</div>
+                        <div class="forecast-day" id=day4>FILLER</div>
+                        <div class="forecast-day" id=day5>FILLER</div>
                     </section>
                 </div>
             </div>

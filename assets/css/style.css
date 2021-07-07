@@ -55,13 +55,41 @@ button{
 }
 
 form button{
-    background: var(--luciowarecolor1);
+    background: var(--luciowarecolor2);
 }
 
 form button:hover,
 form button:focus{
-    background: var(--luciowarecolor2);
+    background: var(--luciowarecolor1);
     border-color: var(--luciowarecolor3);
+    color: white;
+}
+
+/** DISPLAY **/
+section#currentcity {
+    margin: 5px 5px 15px 5px;
+    padding: 10px;
+    border: 2px solid var(--luciowarecolor1);
+}
+
+section#forecast{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section#forecast h3{
+    flex: none;
+    width: 100%;
+    padding: 5px; 
+    margin: 0px;
+}
+
+section#forecast .forecast-day{
+    flex: 1 1 15%;
+    background-color: var(--luciowarecolor3);
+    margin: 5px;
+    padding: 5px;
+    min-height:20px;
     color: white;
 }
 

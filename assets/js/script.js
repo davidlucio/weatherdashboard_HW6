@@ -19,3 +19,4 @@ function checkWeather(location) {
             
         });
 }
+
