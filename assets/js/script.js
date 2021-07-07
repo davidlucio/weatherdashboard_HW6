@@ -105,6 +105,7 @@ function getSearchHistory(){
     historyBlock.html("");
 
     if(weatherHistory !== null){
+        historyBlock.addClass("has-history");
         for(i=0; i<weatherHistory.length; i++){
             var newButton = `<button class="history btn-block" name="${weatherHistory[i]}">${weatherHistory[i]}</button>`;
             historyBlock.append(newButton);
