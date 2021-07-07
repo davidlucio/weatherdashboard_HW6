@@ -43,6 +43,9 @@ form{
     width: 100%;
     padding-bottom: 20px;
     margin-bottom: 20px;
+}
+
+form.has-history{
     border-bottom: 2px solid var(--luciowarecolor3);
 }
 
@@ -66,6 +69,10 @@ form button:focus{
 }
 
 /** DISPLAY **/
+.nocity, .nohistory{
+    display: none;
+}
+
 section#currentcity {
     margin: 5px 5px 15px 5px;
     padding: 10px;
