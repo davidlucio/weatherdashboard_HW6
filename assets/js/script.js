@@ -13,7 +13,7 @@ function checkWeather(location) {
                 // CITY FOUND, LOADING DATA
                 $("input#cityname").val("");
                 response.json().then( function(data){
-                    displayCurrentWeather(location, data);
+                    displayCurrentWeather(data);
                 })
             }
             else{
@@ -48,7 +48,7 @@ function checkForecast(location) {
 var weatherWidget = $("#weatherwidget");
 var historyWidget = $("#searchhistory");
 
-function displayCurrentWeather(city, data){
+function displayCurrentWeather(data){
     
     weatherWidget.removeClass('nocity');
     var currentReport = weatherWidget.find('#currentcity');
@@ -59,7 +59,8 @@ function displayCurrentWeather(city, data){
     currentReport.find('#displayWind span').text(data.wind.speed);
     currentReport.find('#displayHumidity span').text(data.main.humidity);
 
-    // SAVE TO LOCAL STORAGE?
+    // SAVE TO LOCAL STORAGE
+    setSearchHistory(data.name)
 
     // Populate the forecast area
     checkForecast(data.name);
@@ -71,8 +72,6 @@ function displayCurrentForecast(data){
     var dayCounter = 1;
 
     for(i=7; i<=39; i+=8){
-        console.log( `${i} Day ${dayCounter}:`)
-        console.log( data.list[i] );
         var forecastReport = fiveDayForecast.find(`.forecast-day#day${dayCounter}`);
 
         forecastReport.find('h4').text( moment.unix( data.list[i].dt ).format("M/D/YYYY") );
@@ -99,12 +98,51 @@ $( "form#searchbycity").submit(function( event ) {
     }
 });
 
+function getSearchHistory(){
 
-$("button.history").click( function(){
+    var historyBlock = $("aside #searchhistory");
+    var weatherHistory = JSON.parse( localStorage.getItem("weatherhistory") );
+    historyBlock.html("");
 
-    var historyCity = $(this).name();
-    console.log(`History button pressed: ${historyCity}`);
+    if(weatherHistory !== null){
+        for(i=0; i<weatherHistory.length; i++){
+            var newButton = `<button class="history btn-block" name="${weatherHistory[i]}">${weatherHistory[i]}</button>`;
+            historyBlock.append(newButton);
+        }
+    }
 
-});
+    $("button.history").click( function(){
+        var historyCity = $(this).attr("name");
+        checkWeather(historyCity);
+    });
 
-// INCOMPLETE! Need to save to localstorage?
+}
+
+function setSearchHistory(location){
+
+    var weatherHistory = JSON.parse( localStorage.getItem("weatherhistory") );
+
+    // Add it ONLY if it doesn't exist...
+    if(weatherHistory !== null ){
+
+        if( weatherHistory.includes( location ) ){
+            // It already exists. Do nothing.
+        }
+        else{
+            // It doesn't exist yet. Push it.
+            weatherHistory.push(location);
+        }
+        
+    }
+    else{
+        // There is no localstorage yet. Create it.
+        weatherHistory = [location];
+    }
+
+    localStorage.setItem( "weatherhistory", JSON.stringify(weatherHistory) );
+
+    // Repopulate the left-hand search bar.
+    getSearchHistory();
+}
+
+getSearchHistory();
