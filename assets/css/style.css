@@ -73,10 +73,19 @@ form button:focus{
     display: none;
 }
 
+section h3{
+    font-size: 200%;
+    color: var(--luciowarecolor2);
+}
+
 section#currentcity {
     margin: 5px 5px 15px 5px;
     padding: 10px;
     border: 2px solid var(--luciowarecolor1);
+}
+
+section#currentcity h3{
+    margin-bottom: 15px;
 }
 
 section#forecast{
