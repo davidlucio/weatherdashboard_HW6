@@ -88,6 +88,10 @@ section#currentcity h3{
     margin-bottom: 15px;
 }
 
+section#currentcity p span{
+    color: var(--luciowarecolor1);
+}
+
 section#forecast{
     display: flex;
     flex-wrap: wrap;
@@ -104,9 +108,19 @@ section#forecast .forecast-day{
     flex: 1 1 15%;
     background-color: var(--luciowarecolor3);
     margin: 5px;
-    padding: 5px;
+    padding: 10px;
     min-height:20px;
     color: white;
+}
+
+section#forecast .forecast-day h4{
+    color: var(--luciowarecolor1);
+}
+
+section#forecast .forecast-day p{
+    font-size: 90%;
+    margin-bottom:0px;
+    white-space: nowrap;
 }
 
 /** FOOTER **/

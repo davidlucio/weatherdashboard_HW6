@@ -33,7 +33,7 @@ function checkForecast(location) {
                 // CITY FOUND, LOADING DATA
                 $("input#cityname").val("");
                 response.json().then( function(data){
-                    displayCurrentForecast(location, data);
+                    displayCurrentForecast(data);
                 })
             }
             else{
@@ -51,11 +51,9 @@ var historyWidget = $("#searchhistory");
 function displayCurrentWeather(city, data){
     
     weatherWidget.removeClass('nocity');
-
     var currentReport = weatherWidget.find('#currentcity');
-    var fiveDayForecast = weatherWidget.find('#forecast');
     
-    currentReport.find('h3').text(data.name);
+    currentReport.find('h3').text(data.name + "     (" + moment().format("M/D/YYYY") + ")");
     currentReport.find('#displayWeather span').text(data.weather[0].main);
     currentReport.find('#displayTemp span').text(data.main.temp);
     currentReport.find('#displayWind span').text(data.wind.speed);
@@ -67,9 +65,24 @@ function displayCurrentWeather(city, data){
     checkForecast(data.name);
 }
 
-function displayCurrentForecast(city, data){
+function displayCurrentForecast(data){
 
-    console.log(data);
+    var fiveDayForecast = weatherWidget.find('#forecast');
+    var dayCounter = 1;
+
+    for(i=7; i<=39; i+=8){
+        console.log( `${i} Day ${dayCounter}:`)
+        console.log( data.list[i] );
+        var forecastReport = fiveDayForecast.find(`.forecast-day#day${dayCounter}`);
+
+        forecastReport.find('h4').text( moment.unix( data.list[i].dt ).format("M/D/YYYY") );
+        forecastReport.find('.forecast-skies span').text(data.list[i].weather[0].main);
+        forecastReport.find('.forecast-temp span').text(data.list[i].main.temp);
+        forecastReport.find('.forecast-wind span').text(data.list[i].wind.speed);
+        forecastReport.find('.forecast-humid span').text(data.list[i].main.humidity);
+
+        dayCounter++;
+    }
 
 }
 
@@ -94,4 +107,4 @@ $("button.history").click( function(){
 
 });
 
-// INCOMPLETE!
+// INCOMPLETE! Need to save to localstorage?
