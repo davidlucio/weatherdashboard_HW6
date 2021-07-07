@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko&display=swap"/>
+        <link rel="stylesheet" href="./assets/css/style.css"/>
+
+        <title>Weather Dashboard</title>
+    </head>
+
+    <body>
+        
+        <header class="sticky-top p-a-0 m-b-10"><h1>Weather Dashboard</h1></header>
+
+        <main class="container">
+            <div class="row">
+                <aside class="col-sm-12 col-md-3">
+                    <h2>Search for a City</h2>
+                    <form id=searchbycity class="">
+                        <input type=text id=cityname placeholder="City Name" class="form-control"></input>
+                        <button id=search class="btn-block">Search</button>
+                    </form>
+                    
+                    <div id=searchhistory>
+                        <button class="history btn-block">Placeholder</button>
+                    </div>
+                </aside>
+
+                <div class="col-sm-12 col-md-9">
+                    <section id=currentcity>
+                        <h3>City Name</h3>
+                        <p>Temp</p>
+                        <p>Wind</p>
+                        <p>Humidity</p>
+                        <p>UV Index</p>
+                    </section>
+
+                    <section id=forecast>
+                        <div class="forecast-day">1</div>
+                        <div class="forecast-day">2</div>
+                        <div class="forecast-day">3</div>
+                        <div class="forecast-day">4</div>
+                        <div class="forecast-day">5</div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+
+        <footer>
+            <p class="center p">&copy; David Lucio 2021</p>
+        </footer>
+
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>

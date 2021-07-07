@@ -1,0 +1,82 @@
+/** VARIABLES **/
+
+:root {
+
+    --luciowarecolor1:  rgba(249,158, 26,1);
+    --luciowarecolor2:  rgba(  0,136,204,1);
+    --luciowarecolor3:  rgba( 64, 82,117,1);
+    --luciowaregrey :   rgba(102,102,119,1);
+
+}
+
+body{
+    font-family: "Teko", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+/** HEADER **/
+
+
+
+header{
+    display: block;
+    top: 0px;
+    margin-bottom: 20px;
+    background-color: var(--luciowarecolor3);
+    color: white;
+}
+
+header h1{
+    text-align: center;
+    margin: 0px;
+    padding: 10px 0px;
+    font-size: 45px;
+}
+
+/** ASIDE **/
+
+aside{
+
+}
+
+form{
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--luciowarecolor3);
+}
+
+form input{
+    margin-bottom: 10px;
+}
+
+button{
+    border-radius: .25rem;
+}
+
+form button{
+    background: var(--luciowarecolor1);
+}
+
+form button:hover,
+form button:focus{
+    background: var(--luciowarecolor2);
+    border-color: var(--luciowarecolor3);
+    color: white;
+}
+
+/** FOOTER **/
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    background:var(--luciowarecolor3);
+    color: white;
+}
+
+footer p{
+    text-align:center;
+    margin:0px;
+    padding: 5px;
+}
